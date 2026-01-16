@@ -77,6 +77,5 @@ class Producto(private var nombre: String, private var precio: Double, private v
 
 fun main()
 {
-
-
+    // Omito la crecion de los objetos porque es hacer lo mismo todo el rato
 }
