@@ -35,11 +35,15 @@ class Vehiculo(private var marca: String, private var modelo: String, private va
 
 
 // Ejercicio 3
-class Libro(private var titulo: String, private var autor: String)
+class Libro(var titulo: String, var autor: String)
 {
-    constructor(numPaginas: Int, leido: Boolean): this(titulo, autor) {
-        numPaginas = 100
-        leido = false
+
+    var leido: Boolean = false
+    var numPaginas: Int = 0
+
+    constructor(titulo: String, autor: String, numPaginas: Int, leido: Boolean): this(titulo, autor) {
+        this.numPaginas = numPaginas
+        this.leido = leido
     }
 
     override fun toString(): String
@@ -47,7 +51,32 @@ class Libro(private var titulo: String, private var autor: String)
 }
 
 
+// Ejercicio 4
+class Estudiante(private val nombre: String)
+{
+    var nota: Double = 0.0
+
+    fun setNota(nota: Double) { if (nota in 0.0..10.0) this.nota = nota }
+
+    override fun toString(): String { return "Estudiante: $nombre, nota $nota" }
+}
+
+
+class Producto(private var nombre: String, private var precio: Double, private var stock: Int)
+{
+    init {
+        if (precio < 0.0 || stock < 0) throw Exception("Precio invalido")
+    }
+
+    fun vender(cantidad: Int) { if (cantidad > 0) stock -= cantidad }
+
+    fun rebastecer(cantidad: Int) { if (cantidad > 0) stock += cantidad }
+
+    override fun toString(): String { return "roducto: $nombre, Precio: $precio€, Stock: $stock" }
+}
+
 fun main()
 {
+
 
 }
